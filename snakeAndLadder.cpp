@@ -13,7 +13,7 @@ public:
 
     Player(const string& playerName) : name(playerName), position(0) {}
 };
-// function to roll diceddd
+// function to roll dice
 int rollDice()
 {
     return (rand() % 6) + 1;
