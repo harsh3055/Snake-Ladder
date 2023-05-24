@@ -6,6 +6,7 @@
 
 using namespace std;
 
+// for each player we can make object while using player class
 class Player {
 public:
     string name;
@@ -19,6 +20,7 @@ int rollDice()
     return (rand() % 6) + 1;
 }
 
+// this the function for the game 
 void playGame()
 {
     vector<Player> players; // Stores the players
