@@ -1,9 +1,8 @@
-#include <iostream>
-#include <cstdlib>
-#include <ctime>
-#include <vector>
-#include <unordered_map>
-
+#include <bits/stdc++.h>
+// #include <cstdlib>
+// #include <ctime>
+// #include <vector>
+// #include <unordered_map>
 using namespace std;
 
 // for each player we can make object while using player class
@@ -11,7 +10,7 @@ class Player {
 public:
     string name;
     int position;
-
+    bool allowed = false;
     Player(const string& playerName) : name(playerName), position(0) {}
 };
 // function to roll dice
@@ -30,10 +29,9 @@ void playGame()
 
     cout << "Enter the number of players: ";
     cin >> numPlayers;
-
     cin.ignore(); // Ignore the newline character
 
-    // Initialize players
+    // Taking name input from all the players
     for (int i = 0; i < numPlayers; ++i) {
         string playerName;
         cout << "Enter the name of player " << i + 1 << ": ";
@@ -59,8 +57,13 @@ void playGame()
         cin.ignore(); // Wait for user input
 
         int diceRoll = rollDice();
+        if(diceRoll == 6 or diceRoll == 1) 
+        {
+            players[currentPlayer].allowed = true;
+        }
         cout << "Player " << players[currentPlayer].name << " rolled a " << diceRoll << endl;
-        players[currentPlayer].position += diceRoll;
+        if(players[currentPlayer].allowed == true)
+            players[currentPlayer].position += diceRoll;
 
         if (players[currentPlayer].position == 100)
         {
