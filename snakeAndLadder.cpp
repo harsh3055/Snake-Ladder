@@ -19,7 +19,7 @@ int rollDice()
     return (rand() % 6) + 1;
 }
 
-// this the function for the game 
+// this the function for the game
 void playGame()
 {
     vector<Player> players; // Stores the players
