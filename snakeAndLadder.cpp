@@ -57,7 +57,7 @@ void playGame()
         cin.ignore(); // Wait for user input
 
         int diceRoll = rollDice();
-        if(diceRoll == 6 or diceRoll == 1) 
+        if((diceRoll == 6 or diceRoll == 1) and players[currentPlayer].allowed == false) 
         {
             players[currentPlayer].allowed = true;
         }
